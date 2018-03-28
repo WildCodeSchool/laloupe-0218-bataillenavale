@@ -10,14 +10,26 @@ import { AngularFireModule } from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
+// Routing application
+import { RouterModule, Routes } from '@angular/router';
+import { BoatPositionComponent } from './boat-position/boat-position.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'boat-position', component: BoatPositionComponent },
+];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    BoatPositionComponent
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes,
+    ),
     BrowserModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase)

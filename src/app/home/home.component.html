@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row mt-2">
+  <div class="row pt-2">
       <div class="offset-3 col-6">
           <h1>Welcome to Navy-Battle Games !</h1>
       </div>
@@ -20,7 +20,7 @@
       <div class="row">
           <div class="mx-auto pt-4 pb-4">
               <button *ngIf="!authenticated" (click)="login()" class="buttonplay"><span>Sign in</span></button>
-              <button *ngIf="authenticated" (click)="logout()" class="buttonplay"><span>Play now !</span></button>
+              <button *ngIf="authenticated" class="buttonplay" routerLink="/boat-position" routerLinkActive="active"><span>Play now !</span></button>
           </div>
       </div>
   </div>
