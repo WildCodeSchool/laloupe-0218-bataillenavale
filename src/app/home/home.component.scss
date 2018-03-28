@@ -1,0 +1,86 @@
+h1 
+{
+    color: #730F00;
+    text-shadow: 2px 2px 1px #FFFFFF;
+    text-align: center;
+}
+.videoplay 
+{
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    max-width: 800px;
+}
+.buttonplay
+{
+    width: 600px;
+    height: 70px;
+    border: 2px solid;
+    border-radius: 14px;
+    font-size: 40px;
+    color: white;
+    background-color: #730F00;
+}
+.buttonplay span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+  .buttonplay span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  .buttonplay:hover span 
+{
+    padding-right: 25px;
+}
+  
+  .buttonplay:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.buttonlogout 
+{
+    width: 150px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1.4px solid #730F00;
+    background: -moz-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(242,246,248,1)), color-stop(51%, rgba(181,198,208,1)), color-stop(100%, rgba(224,239,249,1)));
+    background: -webkit-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
+    background: -o-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
+    background: -ms-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
+    background: linear-gradient(to bottom, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0 );
+}
+.buttonlogout span 
+{
+    color: #730F00;
+}
+#panel {
+    padding: 5px;
+    text-align: center;
+    border: solid 2px white;
+    color: white;
+    font-size: 15px;
+}
+
+#panel {
+    display: none;
+}
+#flip  a {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+}
+#flip  a:hover {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+}
