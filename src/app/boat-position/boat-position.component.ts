@@ -5,11 +5,11 @@ import { Observable } from 'rxjs/Observable';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-boat-position',
+  templateUrl: './boat-position.component.html',
+  styleUrls: ['./boat-position.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class BoatPositionComponent implements OnInit {
   user: Observable<firebase.User>;
   authenticated = false;
   constructor(public af: AngularFireAuth) {
@@ -21,21 +21,19 @@ export class HomeComponent implements OnInit {
         }
       }
     );
-  }
-  ngOnInit() {
-    $(document).ready(function() {
-      $('#flip').click(function() {
-          $('#panel').toggle('slide');
-      });
-  });
-  }
-  login() {
-    this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    this.authenticated = true;
-  }
-
+   }
   logout() {
     this.af.auth.signOut();
     this.authenticated = false;
   }
+  ngOnInit() {
+      setInterval(function() {
+        $('.textconstruction').animate({'font-size' : '60px'});
+        $('.textconstruction').animate({'font-size' : '40px'});
+      }, 3000);
+
+
+  }
+
 }
+

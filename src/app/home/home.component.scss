@@ -1,3 +1,10 @@
+.container-fluid
+{
+    background-image: url("assets/Image/Backgroundaccueil.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Berkshire Swash', cursive;
+}
 h1 
 {
     color: #730F00;
@@ -20,14 +27,15 @@ h1
     color: white;
     background-color: #730F00;
 }
-.buttonplay span {
+.buttonplay span 
+{
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-}
-  
-  .buttonplay span:after {
+}  
+.buttonplay span:after 
+{
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -35,12 +43,16 @@ h1
     right: -20px;
     transition: 0.5s;
 }
+.buttonlogout span 
+{
+    color: #730F00;
+}
   .buttonplay:hover span 
 {
     padding-right: 25px;
-}
-  
-  .buttonplay:hover span:after {
+}  
+.buttonplay:hover span:after 
+{
     opacity: 1;
     right: 0;
 }
@@ -58,19 +70,12 @@ h1
     background: linear-gradient(to bottom, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0 );
 }
-.buttonlogout span 
-{
-    color: #730F00;
-}
 #panel {
     padding: 5px;
     text-align: center;
     border: solid 2px white;
     color: white;
     font-size: 15px;
-}
-
-#panel {
     display: none;
 }
 #flip  a {
