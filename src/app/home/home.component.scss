@@ -42,12 +42,13 @@ h1
     right: -20px;
     transition: 0.5s;
 }
-  .buttonplay:hover span 
+.buttonplay:hover span 
 {
     padding-right: 25px;
 }
   
-  .buttonplay:hover span:after {
+.buttonplay:hover span:after 
+{
     opacity: 1;
     right: 0;
 }
@@ -75,9 +76,6 @@ h1
     border: solid 2px white;
     color: white;
     font-size: 15px;
-}
-
-#panel {
     display: none;
 }
 #flip  a {
