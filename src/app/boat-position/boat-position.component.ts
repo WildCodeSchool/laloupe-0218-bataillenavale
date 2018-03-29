@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from "angularfire2/auth";
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import * as $ from 'jquery';
@@ -11,29 +11,29 @@ import * as $ from 'jquery';
 })
 export class BoatPositionComponent implements OnInit {
   user: Observable<firebase.User>;
-  authenticated: boolean = false;
+  authenticated = false;
   constructor(public af: AngularFireAuth) {
     this.af.authState.subscribe(
-      (auth) =>{
-        if(auth != null){
+      (auth) => {
+        if (auth != null) {
           this.user = af.authState;
           this.authenticated = true;
         }
       }
-    )
+    );
    }
-  logout(){
+  logout() {
     this.af.auth.signOut();
     this.authenticated = false;
   }
   ngOnInit() {
-      setInterval(function(){
-        $('.textconstruction').animate({"font-size" : "60px"});
-        $('.textconstruction').animate({"font-size" : "40px"});
-      },3000);
-      
-    
+      setInterval(function() {
+        $('.textconstruction').animate({'font-size' : '60px'});
+        $('.textconstruction').animate({'font-size' : '40px'});
+      }, 3000);
+
+
   }
 
 }
- 
+
