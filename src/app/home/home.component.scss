@@ -34,7 +34,8 @@ h1
     transition: 0.5s;
 }
   
-  .buttonplay span:after {
+.buttonplay span:after 
+{
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -42,7 +43,7 @@ h1
     right: -20px;
     transition: 0.5s;
 }
-.buttonplay:hover span 
+.buttonplay span:hover
 {
     padding-right: 25px;
 }
