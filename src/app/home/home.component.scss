@@ -43,11 +43,10 @@ h1
     right: -20px;
     transition: 0.5s;
 }
-.buttonplay span:hover
+.buttonplay:hover
 {
     padding-right: 25px;
-}
-  
+}  
 .buttonplay:hover span:after 
 {
     opacity: 1;
@@ -67,7 +66,7 @@ h1
     background: linear-gradient(to bottom, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0 );
 }
-.buttonlogout span 
+.buttonlogout
 {
     color: #730F00;
 }
