@@ -1,3 +1,4 @@
+/* Home page */
 .container-fluid
 {
     background-image: url("assets/Image/Backgroundaccueil.jpg");
@@ -36,7 +37,6 @@ h1
 }  
 .buttonplay span:after 
 {
-    content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
@@ -46,15 +46,6 @@ h1
 .buttonlogout span 
 {
     color: #730F00;
-}
-  .buttonplay:hover span 
-{
-    padding-right: 25px;
-}  
-.buttonplay:hover span:after 
-{
-    opacity: 1;
-    right: 0;
 }
 .buttonlogout 
 {
