@@ -10,6 +10,8 @@ import * as $ from 'jquery';
   styleUrls: ['./boat-position.component.scss']
 })
 export class BoatPositionComponent implements OnInit {
+
+  // Google Authentification //
   user: Observable<firebase.User>;
   authenticated = false;
   constructor(public af: AngularFireAuth) {
@@ -21,19 +23,29 @@ export class BoatPositionComponent implements OnInit {
         }
       }
     );
-   }
+  }
+
+  // Place your boats //
+
+  // Button logout //
   logout() {
     this.af.auth.signOut();
     this.authenticated = false;
   }
+
   ngOnInit() {
-      setInterval(function() {
-        $('.textconstruction').animate({'font-size' : '60px'});
-        $('.textconstruction').animate({'font-size' : '40px'});
-      }, 3000);
-
-
   }
-
 }
 
+
+
+
+
+
+
+
+// Animation //
+/* setInterval(function() {
+      $('.textconstruction').animate({'font-size' : '60px'});
+      $('.textconstruction').animate({'font-size' : '40px'});
+    }, 3000); */

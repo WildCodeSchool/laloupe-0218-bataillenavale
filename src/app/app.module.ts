@@ -14,6 +14,9 @@ import { environment } from '../environments/environment';
 import { RouterModule, Routes } from '@angular/router';
 import { BoatPositionComponent } from './boat-position/boat-position.component';
 
+// External Libraries //
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'boat-position', component: BoatPositionComponent },
@@ -32,7 +35,8 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    ToastModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
