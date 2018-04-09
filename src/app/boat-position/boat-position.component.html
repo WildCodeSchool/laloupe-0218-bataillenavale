@@ -9,18 +9,3 @@
       </button>
     </div>
   </div>
-
-  <!-- Titre -->
-  <div class="container">
-    <ul>
-      <li class="text" *ngFor="let item of items | async">
-        <pre>{{item | json}}</pre>
-        {{item.name}}
-      </li>
-    </ul>
-
-    <hr>
-
-    <pre>{{objObservable | async | json}}</pre>
-  </div>
-</div>
