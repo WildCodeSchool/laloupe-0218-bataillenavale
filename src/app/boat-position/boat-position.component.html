@@ -12,17 +12,15 @@
 
   <!-- Titre -->
   <div class="container">
-    <div class="row">
-      <div class="mx-auto">
-        <h1>Place your boats here to begin the game</h1>
-      </div>
-    </div>
-    
+    <ul>
+      <li class="text" *ngFor="let item of items | async">
+        <pre>{{item | json}}</pre>
+        {{item.name}}
+      </li>
+    </ul>
 
+    <hr>
 
-
-
-
-<!-- <div class="mx-auto">
-        <h1 class="textconstruction">In construction</h1>
-      </div> -->
+    <pre>{{objObservable | async | json}}</pre>
+  </div>
+</div>
