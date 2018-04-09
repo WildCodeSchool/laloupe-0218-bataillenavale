@@ -1,8 +1,12 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from 'angularfire2/firestore';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import * as $ from 'jquery';
+
+
 
 @Component({
   selector: 'app-home',
@@ -12,7 +16,7 @@ import * as $ from 'jquery';
 export class HomeComponent implements OnInit {
   user: Observable<firebase.User>;
   authenticated = false;
-  constructor(public af: AngularFireAuth) {
+  constructor(public af: AngularFireAuth, private router: Router, ) {
     this.af.authState.subscribe(
       (auth) => {
         if (auth != null) {

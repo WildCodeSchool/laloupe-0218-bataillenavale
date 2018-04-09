@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { RouterModule, Routes } from '@angular/router';
 import { BoatPositionComponent } from './boat-position/boat-position.component';
 
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'boat-position', component: BoatPositionComponent },
@@ -24,7 +25,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    BoatPositionComponent
+    BoatPositionComponent,
   ],
   imports: [
     RouterModule.forRoot(
