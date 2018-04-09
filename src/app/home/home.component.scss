@@ -4,7 +4,11 @@
 
 .container-fluid
 {
+<<<<<<< HEAD
     
+=======
+    background: url(https://i.pinimg.com/originals/68/39/74/6839747c4dce24ced5a71334bf7df7ea.jpg);
+>>>>>>> Alex
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Love Ya Like A Sister', cursive;
@@ -33,6 +37,7 @@ h1
     font-size: 40px;
     color: white;
     background-color: #730F00;
+    font-family: 'Berkshire Swash', cursive;
 }
 .buttonplay span 
 {
@@ -57,9 +62,9 @@ h1
 {
     width: 50%;
     height: 39%;
-    background-image: url("assets/Image/Backgroundaccueil.jpg");
-    border-radius: 10px;
-    border: transparent;
+    background: none;
+    border: 1px solid white;
+    border-radius: 18px;
 }
 
 #panel {

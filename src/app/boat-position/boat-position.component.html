@@ -1,4 +1,6 @@
 <div class="container-fluid backgroundplace">
+
+  <!-- Bouton de redirection -->
   <div class="row pt-4">
     <div class="offset-lg-10">
       <button routerLink="/" routerLinkActive="active">Home page</button>
@@ -7,16 +9,3 @@
       </button>
     </div>
   </div>
-  <div class="container">
-    <ul>
-      <li class="text" *ngFor="let item of items | async">
-        <pre>{{item | json}}</pre>
-        {{item.name}}
-      </li>
-    </ul>
-
-    <hr>
-
-    <pre>{{objObservable | async | json}}</pre>
-  </div>
-</div>
