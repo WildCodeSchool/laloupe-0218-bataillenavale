@@ -15,7 +15,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 // Routing application
 import { RouterModule, Routes } from '@angular/router';
 import { BoatPositionComponent } from './boat-position/boat-position.component';
-//import { MatchmakingComponent } from './matchmaking/matchmaking.component';
+// import { MatchmakingComponent } from './matchmaking/matchmaking.component';
 
 
 const appRoutes: Routes = [

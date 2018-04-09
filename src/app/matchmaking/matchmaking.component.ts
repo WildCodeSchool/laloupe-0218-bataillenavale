@@ -1,13 +1,13 @@
-/*import { AuthService } from './../auth.service';
+/* import { AuthService } from './../auth.service';
 import { Player } from './../models/player';
 import { Room } from './../models/room';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Rx';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; */
 
-@Component({
+/* @Component({
   selector: 'app-match-making',
   templateUrl: './match-making.component.html',
   styleUrls: ['./match-making.component.css'],
@@ -63,5 +63,5 @@ export class MatchMakingComponent implements OnInit {
         });
     });
   }
-}
-*/
+} */
+

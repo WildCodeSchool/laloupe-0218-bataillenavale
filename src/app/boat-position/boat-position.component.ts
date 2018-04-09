@@ -3,7 +3,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestore } from 'angularfire2/firestore';
-/* import { Cell } from '../models/cell'; */
+import 'rxjs/Rx';
 
 
 @Component({
@@ -13,14 +13,20 @@ import { AngularFirestore } from 'angularfire2/firestore';
 })
 export class BoatPositionComponent implements OnInit {
 
-  // Google Authentification //
   user: Observable<firebase.User>;
   items: Observable<any[]>;
   objObservable: Observable<any>;
+  boats: Observable<any[]>;
   authenticated = false;
-  constructor(public af: AngularFireAuth, db: AngularFirestore) {
-    this.items = db.collection('items').valueChanges();
-    this.objObservable = db.doc("items/CN1kSt3xcuujlsakfWFd").valueChanges();
+  constructor(public af: AngularFireAuth, private db: AngularFirestore) {
+
+    /* this.items = db.collection('items').valueChanges();
+    console.log(this.items);
+
+    this.objObservable = db.doc("items/CN1kSt3xcuujlsakfWFd").valueChanges(); */
+
+    this.generateBoats();
+
     this.af.authState.subscribe(
       (auth) => {
         if (auth != null) {
@@ -29,9 +35,16 @@ export class BoatPositionComponent implements OnInit {
         }
       }
     );
-   }
-  
-   logout() {
+  }
+
+  generateBoats() {
+    const boatsCollection = this.db.collection('boats');
+    boatsCollection.valueChanges().take(1).subscribe(boats => {
+      console.log(boats);
+    });
+  }
+
+  logout() {
     this.af.auth.signOut();
     this.authenticated = false;
   }
