@@ -2,11 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
 
-
-
-.container-fluid
-{
-    font-family: 'Love Ya Like A Sister', cursive;
+.modal-header {
+    z-index: 3;
 }
 
 h1 
@@ -17,7 +14,7 @@ h1
     font-size: 3rem;
 }
 
-.videoplay 
+.videoplay
 {
     border: 1px solid #FFFFFF;
     border-radius: 10px;

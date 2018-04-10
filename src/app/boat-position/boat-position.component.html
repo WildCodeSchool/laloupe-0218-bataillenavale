@@ -4,7 +4,7 @@
   <div class="row pt-4">
     <div class="offset-lg-10">
       <button routerLink="/" routerLinkActive="active">Home page</button>
-      <button *ngIf="authenticated" (click)="logout()" class="buttonlogout mt-1 ml-2" routerLink="/" routerLinkActive="active">
+      <button *ngIf="authService.authenticated" (click)="logout()" class="buttonlogout mt-1 ml-2" routerLink="/" routerLinkActive="active">
         <span>Logout</span>
       </button>
     </div>

@@ -4,7 +4,7 @@
             <h1>Welcome to Navy-Battle Games !</h1>
         </div>
         <div class="offset-1 col-2">
-            <button *ngIf="authenticated" (click)="logout()" class="buttonlogout mt-1 ml-2">
+            <button *ngIf="authService.authenticated" (click)="logout()" class="buttonlogout mt-1 ml-2">
                 <span>
                     <img src="assets/Image/exit.png" alt="logout">Logout</span>
             </button>
@@ -15,30 +15,38 @@
             <iframe class="embed-responsive-item" src="assets/Videos/Videoaccueil.mp4"></iframe>
         </div>
         <div class="row mt-4">
-          
+            <div class="mx-auto" style="text-align: center">
+                <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hello my world </h4>
+                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>what the hell</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+                    </div>
+                </ng-template>
 
-            <div id="flip">
-                <a href="#">Click to check the rules</a>
+                <button class="btn btn-lg btn-outline-primary" (click)="open(content)">The Rules</button>
+
+                <hr>
+
+                <pre>{{closeResult}}</pre>
             </div>
-            <div id="panel">The object of Battleship is to try and sink all of the other p
-                
-                layer's before they sink all of your ships. All
-                of the other player's ships are somewhere on his/her board. You try and hit them by calling out the coordinates
-                of one of the squares on the board. The other player also tries to hit your ships by calling out coordinates.
-                Neither you nor the other player can see the other's board so you must try to guess where they are. Each
-                board in the physical game has two grids: the lower (horizontal) section for the player's ships and the upper
-                part (vertical during play) for recording the player's guesses.</div>
+        </div>
+        <div class="row">
+            <div class="mx-auto pt-4 pb-4">
+                <button *ngIf="!authService.authenticated" (click)="login()" class="buttonplay">
+                    <span>Sign in</span>
+                </button>
+                <button *ngIf="authService.authenticated" class="buttonplay" routerLink="/boat-position" routerLinkActive="active">
+                    <span>Play now !</span>
+                </button>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="mx-auto pt-4 pb-4">
-            <button *ngIf="!authenticated" (click)="login()" class="buttonplay">
-                <span>Sign in</span>
-            </button>
-            <button *ngIf="authenticated" class="buttonplay" routerLink="/boat-position" routerLinkActive="active">
-                <span>Play now !</span>
-            </button>
-        </div>
-    </div>
-</div>
 </div>

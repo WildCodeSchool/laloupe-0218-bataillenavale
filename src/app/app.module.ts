@@ -15,7 +15,10 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 // Routing application
 import { RouterModule, Routes } from '@angular/router';
 import { BoatPositionComponent } from './boat-position/boat-position.component';
-//import { MatchmakingComponent } from './matchmaking/matchmaking.component';
+import { AuthService } from './auth.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import { MatchmakingComponent } from './matchmaking/matchmaking.component';
 
 
 const appRoutes: Routes = [
@@ -34,12 +37,13 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
     ),
+    NgbModule.forRoot(),
     BrowserModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AuthService,NgbModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
