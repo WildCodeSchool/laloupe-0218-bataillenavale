@@ -39,7 +39,7 @@ export class MatchmakingComponent implements OnInit {
     const snapshot = roomsCollection.snapshotChanges().take(1).subscribe((snapshot) => {
       const player = new Player();
       player.name = this.authService.name;
-      player.cards = [];
+      //player.boats = [];
 
       for (const snapshotItem of snapshot) {
         const roomId = snapshotItem.payload.doc.id;
@@ -48,7 +48,7 @@ export class MatchmakingComponent implements OnInit {
         if (Object.keys(room.players).length === 1) {
           room.players[this.authService.authId] = player;
           this.db.doc('rooms/' + roomId).update(JSON.parse(JSON.stringify(room)));
-          this.router.navigate(['game', roomId]);
+          this.router.navigate(['boat-position', roomId]);
           return;
         }
       }
@@ -59,8 +59,9 @@ export class MatchmakingComponent implements OnInit {
       this.db.collection('rooms')
         .add(JSON.parse(JSON.stringify(room)))
         .then((doc) => {
-          this.router.navigate(['game', doc.id]);
+          this.router.navigate(['boat-position', doc.id]);
         });
     });
   }
 }
+
