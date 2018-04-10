@@ -1,4 +1,4 @@
-/*import { AuthService } from './../auth.service';
+/* import { AuthService } from './../auth.service';
 import { Player } from './../models/player';
 import { Room } from './../models/room';
 import { Component, OnInit } from '@angular/core';
@@ -59,9 +59,9 @@ export class MatchMakingComponent implements OnInit {
       this.db.collection('rooms')
         .add(JSON.parse(JSON.stringify(room)))
         .then((doc) => {
-          this.router.navigate(['game', doc.id]);
+          this.router.navigate(['boat-position', doc.id]);
         });
     });
   }
 }
-*/
+ */
