@@ -4,7 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
-import * as $ from 'jquery';
+
 
 
 
@@ -27,11 +27,7 @@ export class HomeComponent implements OnInit {
     );
   }
   ngOnInit() {
-    $(document).ready(function() {
-      $('#flip').click(function() {
-          $('#panel').toggle('slide');
-      });
-  });
+    
   }
   login() {
     this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -43,3 +39,6 @@ export class HomeComponent implements OnInit {
     this.authenticated = false;
   }
 }
+
+
+
