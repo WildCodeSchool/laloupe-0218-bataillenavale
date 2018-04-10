@@ -1,4 +1,4 @@
-/* import { AuthService } from './../auth.service';
+import { AuthService } from './../auth.service';
 import { Player } from './../models/player';
 import { Room } from './../models/room';
 import { Component, OnInit } from '@angular/core';
@@ -8,9 +8,9 @@ import { Subscription } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-match-making',
-  templateUrl: './match-making.component.html',
-  styleUrls: ['./match-making.component.css'],
+  selector: 'app-matchmaking',
+  templateUrl: './matchmaking.component.html',
+  styleUrls: ['./matchmaking.component.scss'],
 })
 export class MatchMakingComponent implements OnInit {
 
@@ -22,7 +22,7 @@ export class MatchMakingComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.authSubscription = this.authService.authState.take(1).subscribe((user) => {
+    this.authSubscription = this.authService.af.authState.take(1).subscribe((user) => {
       if (user) {
         this.getRooms();
       }
@@ -39,7 +39,6 @@ export class MatchMakingComponent implements OnInit {
     const snapshot = roomsCollection.snapshotChanges().take(1).subscribe((snapshot) => {
       const player = new Player();
       player.name = this.authService.name;
-      player.cards = [];
 
       for (const snapshotItem of snapshot) {
         const roomId = snapshotItem.payload.doc.id;
@@ -48,7 +47,7 @@ export class MatchMakingComponent implements OnInit {
         if (Object.keys(room.players).length === 1) {
           room.players[this.authService.authId] = player;
           this.db.doc('rooms/' + roomId).update(JSON.parse(JSON.stringify(room)));
-          this.router.navigate(['game', roomId]);
+          this.router.navigate(['/boat-position', roomId]);
           return;
         }
       }
@@ -59,9 +58,9 @@ export class MatchMakingComponent implements OnInit {
       this.db.collection('rooms')
         .add(JSON.parse(JSON.stringify(room)))
         .then((doc) => {
-          this.router.navigate(['boat-position', doc.id]);
+          this.router.navigate(['/boat-position', doc.id]);
         });
     });
   }
 }
- */
+
