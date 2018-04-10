@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
 
     }
+    
+
 
     login() {
       this.authService.login();
@@ -33,7 +35,7 @@ export class HomeComponent implements OnInit {
       this.authService.logout();
     }
 
-    open(content) {
+        open(content) {
       this.modalService.open(content).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
@@ -50,6 +52,7 @@ export class HomeComponent implements OnInit {
         return  `with: ${reason}`;
       }
     }
+   
 }
 
 
