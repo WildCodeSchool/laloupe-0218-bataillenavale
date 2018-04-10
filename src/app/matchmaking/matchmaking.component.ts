@@ -5,9 +5,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Rx';
-import { Router } from '@angular/router'; */
+import { Router } from '@angular/router';
 
-/* @Component({
+@Component({
   selector: 'app-match-making',
   templateUrl: './match-making.component.html',
   styleUrls: ['./match-making.component.css'],
@@ -59,9 +59,9 @@ export class MatchMakingComponent implements OnInit {
       this.db.collection('rooms')
         .add(JSON.parse(JSON.stringify(room)))
         .then((doc) => {
-          this.router.navigate(['game', doc.id]);
+          this.router.navigate(['boat-position', doc.id]);
         });
     });
   }
-} */
-
+}
+ */
