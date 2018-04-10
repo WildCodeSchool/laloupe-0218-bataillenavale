@@ -7,20 +7,17 @@ import { AngularFirestore } from 'angularfire2/firestore';
 
 
 @Component({
-  selector: 'app-boat-position',
-  templateUrl: './boat-position.component.html',
-  styleUrls: ['./boat-position.component.scss']
+  selector: 'app-game',
+  templateUrl: './game.component.html',
+  styleUrls: ['./game.component.scss']
 })
-export class BoatPositionComponent implements OnInit {
+export class GameComponent implements OnInit {
 
   // Google Authentification //
   user: Observable<firebase.User>;
-  items: Observable<any[]>;
-  objObservable: Observable<any>;
+  
   authenticated = false;
   constructor(public af: AngularFireAuth, db: AngularFirestore) {
-    this.items = db.collection('items').valueChanges();
-    this.objObservable = db.doc("items/CN1kSt3xcuujlsakfWFd").valueChanges();
     this.af.authState.subscribe(
       (auth) => {
         if (auth != null) {

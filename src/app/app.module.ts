@@ -14,13 +14,14 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 // Routing application
 import { RouterModule, Routes } from '@angular/router';
-import { BoatPositionComponent } from './boat-position/boat-position.component';
-//import { MatchmakingComponent } from './matchmaking/matchmaking.component';
+import { GameComponent } from './game/game.component';
+import { MatchmakingComponent } from './matchmaking/matchmaking.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'boat-position', component: BoatPositionComponent },
+  { path: 'game', component: GameComponent },
+  { path: 'matchmaking', component: MatchmakingComponent },
 ];
 
 
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    BoatPositionComponent,
+    GameComponent,
+    MatchmakingComponent,
   ],
   imports: [
     RouterModule.forRoot(

@@ -19,8 +19,8 @@
         </div>
       <div class="row">
           <div class="mx-auto pt-4 pb-4">
-              <button *ngIf="!authenticated" (click)="login()" class="buttonplay"><span>Sign in</span></button>
-              <button *ngIf="authenticated" class="buttonplay" routerLink="/boat-position" routerLinkActive="active"><span>Play now !</span></button>
+              <button *ngIf="!authenticated" (click)="goToLogin()" class="buttonplay"><span>Sign in</span></button>
+              <button *ngIf="authenticated" class="buttonplay" routerLink="/game" routerLinkActive="active"><span>Play now !</span></button>
           </div>
       </div>
   </div>

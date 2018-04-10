@@ -1,4 +1,4 @@
-/*import { AuthService } from './../auth.service';
+import { AuthService } from './../auth.service';
 import { Player } from './../models/player';
 import { Room } from './../models/room';
 import { Component, OnInit } from '@angular/core';
@@ -8,11 +8,11 @@ import { Subscription } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-match-making',
-  templateUrl: './match-making.component.html',
-  styleUrls: ['./match-making.component.css'],
+  selector: 'app-matchmaking',
+  templateUrl: './matchmaking.component.html',
+  styleUrls: ['./matchmaking.component.scss'],
 })
-export class MatchMakingComponent implements OnInit {
+export class MatchmakingComponent implements OnInit {
 
   private authSubscription: Subscription;
 
@@ -64,4 +64,3 @@ export class MatchMakingComponent implements OnInit {
     });
   }
 }
-*/

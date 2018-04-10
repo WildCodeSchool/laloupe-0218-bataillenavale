@@ -6,8 +6,6 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import * as $ from 'jquery';
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
