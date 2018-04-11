@@ -1,27 +1,29 @@
 <div class="container-fluid backgroundplace">
 
   <!-- Bouton de redirection -->
-  <div class="row pt-4">
-    <div class="offset-lg-10">
+  <!-- <div class="row pt-4"> -->
+    <div class="navbar navbar-expand nav1">
       <button routerLink="/" routerLinkActive="active">Home page</button>
-      <button *ngIf="authService.authState | async" (click)="logout()" class="buttonlogout mt-1 ml-2" routerLink="/" routerLinkActive="active">
+      <div class="coloruser offset-lg-9 mt-1" *ngIf="authService.authState | async as user">{{user.displayName}}<img [src]="user.photoURL" class="imgurl rounded-circle"/></div>
+      <button class="ml-2" *ngIf="authService.authState | async" (click)="logout()" routerLink="/"
+        routerLinkActive="active">
         <span>Logout</span>
       </button>
     </div>
-  </div>
+  <!-- </div> -->
   <div class="container">
     <div class="row tablemargin">
-      <div class="col-6 mx-auto">
+      <div class="col-6">
         <div class="row" *ngFor="let line of grid">
-          <div class="color col-1 p-1" *ngFor="let elem of line">
+          <div class="color col-1" *ngFor="let elem of line">
             {{elem}}
           </div>
         </div>
       </div>
       <br>
-      <div class="col-6 mx-auto">
+      <div class="col-6">
         <div class="row" *ngFor="let line of grid">
-          <div class="color col-1 p-1" *ngFor="let elem of line">
+          <div class="color col-1" *ngFor="let elem of line">
             {{elem}}
           </div>
         </div>
@@ -29,11 +31,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="col-6">
-        <div *ngFor="let line of grid">
-          <div class="color" *ngFor="let elem of line">
-            {{elem}}
-          </div>
-        </div>
-      </div> -->
