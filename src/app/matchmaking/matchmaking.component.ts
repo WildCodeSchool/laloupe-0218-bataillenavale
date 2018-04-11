@@ -22,7 +22,7 @@ export class MatchmakingComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.authSubscription = this.authService.authState.take(1).subscribe((user) => {
+    this.authSubscription = this.authService.af.authState.take(1).subscribe((user) => {
       if (user) {
         this.getRooms();
       }
@@ -39,7 +39,6 @@ export class MatchmakingComponent implements OnInit {
     const snapshot = roomsCollection.snapshotChanges().take(1).subscribe((snapshot) => {
       const player = new Player();
       player.name = this.authService.name;
-      //player.boats = [];
 
       for (const snapshotItem of snapshot) {
         const roomId = snapshotItem.payload.doc.id;

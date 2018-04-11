@@ -17,6 +17,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BoatPositionComponent } from './boat-position/boat-position.component';
 import { AuthService } from './auth.service';
 import { MatchmakingComponent } from './matchmaking/matchmaking.component';
+// import { MatchmakingComponent } from './matchmaking/matchmaking.component';
 
 
 const appRoutes: Routes = [
@@ -30,8 +31,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    MatchmakingComponent,
-    BoatPositionComponent
+    BoatPositionComponent,
+    MatchmakingComponent
   ],
   imports: [
     RouterModule.forRoot(

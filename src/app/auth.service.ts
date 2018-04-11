@@ -1,15 +1,17 @@
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
-
+  user: Observable<firebase.User>;
   authId: string;
   name: string;
-
-  constructor(private afAuth: AngularFireAuth) {
-    this.afAuth.authState.subscribe((user) => {
+  
+  constructor(public af: AngularFireAuth, private router: Router) {
+    this.af.authState.subscribe((user) => {
       if (user) {
         this.authId = user.uid;
         this.name = user.displayName;
@@ -21,14 +23,14 @@ export class AuthService {
   }
 
   get authState() {
-    return this.afAuth.authState;
+    return this.af.authState;
   }
 
   login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.af.auth.signOut();
   }
 }
