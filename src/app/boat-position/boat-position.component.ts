@@ -17,31 +17,13 @@ import { Room } from '../models/room';
 })
 export class BoatPositionComponent implements OnInit {
 
-  room: any;
-  roomId: string;
-  grid: string[][];
   constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, ) {
 
   }
 
-  ngOnInit() {
-    this.roomId = this.route.snapshot.paramMap.get('id');
-    this.db
-      .doc<Room>('rooms/' + this.roomId)
-      .valueChanges()
-      .subscribe((room) => {
-        this.room = room;
-        console.log(room);
-        this.grid;
-        if (!this.grid) {
-          this.grid = [];
-          for (let index = 0; index < this.room.gridsize; index++) {
-            this.grid[index] = Object.keys(Array.apply(0, Array(this.room.gridsize)));
+ 
 
-          }
-          console.log(this.grid);          
-        }
-      });
+  ngOnInit() {
 
   }
 
@@ -75,3 +57,19 @@ export class BoatPositionComponent implements OnInit {
 
   /* this.generateBoats(); */
 
+/*   this.roomId = this.route.snapshot.paramMap.get('id');
+  this.db
+    .doc<Room>('rooms/' + this.roomId)
+    .valueChanges()
+    .subscribe((room) => {
+      this.room = room;
+      console.log(room);
+      this.grid;
+      if (!this.grid) {
+        this.grid = [];
+        for (let index = 0; index < this.room.gridsize; index++) {
+          this.grid[index] = Object.keys(Array.apply(0, Array(this.room.gridsize)));
+        }
+        console.log(this.grid);          
+      }
+    }); */

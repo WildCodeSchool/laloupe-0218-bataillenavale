@@ -13,22 +13,29 @@
 {
     color: white;
     border: 1px solid white;
-    border-top: 1px solid yellow;
+    text-align: center;
+    padding: 10px;
+    background: rgba($color: blue, $alpha: 0.1)
+}
+
+.coloruser 
+{
+    color: white;
 }
 
 .tablemargin 
 {
     margin-top: 150px;
+    margin-left: 65px;
 }
 
+.nav1 {
+    background: rgba($color: black, $alpha: 0.4);
+}
 
-
-
-
-
-
-/* .textconstruction 
+.imgurl
 {
-    font-size: 40px;
+    margin-left: 10px;
+    max-width: 40px;
 }
- */
+
