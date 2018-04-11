@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
-    console.log('toto')
+    console.log('toto');
     this.authService.logout();
   }
 
