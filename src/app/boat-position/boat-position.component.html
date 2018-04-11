@@ -4,8 +4,36 @@
   <div class="row pt-4">
     <div class="offset-lg-10">
       <button routerLink="/" routerLinkActive="active">Home page</button>
-      <button *ngIf="authService.authenticated" (click)="logout()" class="buttonlogout mt-1 ml-2" routerLink="/" routerLinkActive="active">
+      <button *ngIf="authService.authState | async" (click)="logout()" class="buttonlogout mt-1 ml-2" routerLink="/" routerLinkActive="active">
         <span>Logout</span>
       </button>
     </div>
   </div>
+  <div class="container">
+    <div class="row tablemargin">
+      <div class="col-6 mx-auto">
+        <div class="row" *ngFor="let line of grid">
+          <div class="color col-1 p-1" *ngFor="let elem of line">
+            {{elem}}
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="col-6 mx-auto">
+        <div class="row" *ngFor="let line of grid">
+          <div class="color col-1 p-1" *ngFor="let elem of line">
+            {{elem}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col-6">
+        <div *ngFor="let line of grid">
+          <div class="color" *ngFor="let elem of line">
+            {{elem}}
+          </div>
+        </div>
+      </div> -->

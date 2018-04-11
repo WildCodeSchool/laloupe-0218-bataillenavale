@@ -55,6 +55,7 @@ export class MatchmakingComponent implements OnInit {
       const room = new Room();
       room.players = {};
       room.players[this.authService.authId] = player;
+      room.gridsize = 10;
       this.db.collection('rooms')
         .add(JSON.parse(JSON.stringify(room)))
         .then((doc) => {

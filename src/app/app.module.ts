@@ -22,8 +22,8 @@ import { MatchmakingComponent } from './matchmaking/matchmaking.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'boat-position/:id', component: BoatPositionComponent },
   { path: 'matchmaking', component: MatchmakingComponent },
-  { path: 'boat-position', component: BoatPositionComponent },
 ];
 
 

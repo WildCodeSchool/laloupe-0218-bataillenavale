@@ -31,6 +31,8 @@ export class AuthService {
   }
 
   logout() {
-    this.af.auth.signOut();
+    this.af.auth.signOut(); 
+    this.authId = null;
+    this.name = null;
   }
 }
