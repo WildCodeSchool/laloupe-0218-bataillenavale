@@ -37,7 +37,6 @@ export class BoatPositionComponent implements OnInit {
           this.grid = [];
           for (let index = 0; index < this.room.gridsize; index++) {
             this.grid[index] = Object.keys(Array.apply(0, Array(this.room.gridsize)));
-
           }
           console.log(this.grid);          
         }
