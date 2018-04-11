@@ -17,10 +17,14 @@ import { Room } from '../models/room';
 })
 export class BoatPositionComponent implements OnInit {
 
+  public eventStatus;
+  public winnerDeclared;
+
   room: any;
   roomId: string;
   grid: string[][];
-  constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, ) {
+
+  constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, public boatService: BoatService ) {
 
   }
 
@@ -43,35 +47,12 @@ export class BoatPositionComponent implements OnInit {
           
         }
       });
+    }    
 
-  }
 
   logout() {
     this.authService.logout();
   }
 
 
-}
 
-
-
-/* user: Observable<firebase.User>;
-  items: Observable<any[]>;
-  objObservable: Observable<any>;
-  boats: Observable<any[]>; */
-
-
- /*  generateBoats() {
-    let boatsCollection = this.db.collection('boats');
-    boatsCollection.valueChanges()
-      .take(1)
-      .subscribe(boats => {
-        console.log(boats);
-      });
-  } */
-
-
-
-
-
-  /* this.generateBoats(); */
