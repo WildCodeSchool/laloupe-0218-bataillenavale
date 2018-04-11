@@ -24,6 +24,25 @@ export class BoatPositionComponent implements OnInit {
  
 
   ngOnInit() {
+<<<<<<< HEAD
+=======
+    this.roomId = this.route.snapshot.paramMap.get('id');
+    this.db
+      .doc<Room>('rooms/' + this.roomId)
+      .valueChanges()
+      .subscribe((room) => {
+        this.room = room;
+        console.log(room);
+        this.grid;
+        if (!this.grid) {
+          this.grid = [];
+          for (let index = 0; index < this.room.gridsize; index++) {
+            this.grid[index] = Object.keys(Array.apply(0, Array(this.room.gridsize)));
+          }
+          console.log(this.grid);          
+        }
+      });
+>>>>>>> 43f7deffaf4a28d7a8cf573228fbcfa41d586f61
 
   }
 
