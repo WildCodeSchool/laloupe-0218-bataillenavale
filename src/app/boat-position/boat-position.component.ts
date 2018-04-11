@@ -24,7 +24,7 @@ export class BoatPositionComponent implements OnInit {
   roomId: string;
   grid: string[][];
 
-  constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, public boatService: BoatService ) {
+  constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, ) {
 
   }
 
@@ -36,15 +36,14 @@ export class BoatPositionComponent implements OnInit {
       .subscribe((room) => {
         this.room = room;
         console.log(room);
-        this.grid
+        this.grid;
         if (!this.grid) {
           this.grid = [];
           for (let index = 0; index < this.room.gridsize; index++) {
             this.grid[index] = Object.keys(Array.apply(0, Array(this.room.gridsize)));
 
           }
-          console.log(this.grid);
-          
+          console.log(this.grid);          
         }
       });
     }    
@@ -55,4 +54,4 @@ export class BoatPositionComponent implements OnInit {
   }
 
 
-
+}
