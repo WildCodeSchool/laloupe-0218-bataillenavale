@@ -47,7 +47,7 @@ export class MatchMakingComponent implements OnInit {
         if (Object.keys(room.players).length === 1) {
           room.players[this.authService.authId] = player;
           this.db.doc('rooms/' + roomId).update(JSON.parse(JSON.stringify(room)));
-          this.router.navigate(['/boat-position', roomId]);
+          this.router.navigate(['boat-position', roomId]);
           return;
         }
       }
@@ -55,10 +55,11 @@ export class MatchMakingComponent implements OnInit {
       const room = new Room();
       room.players = {};
       room.players[this.authService.authId] = player;
+      room.gridsize = 10;
       this.db.collection('rooms')
         .add(JSON.parse(JSON.stringify(room)))
         .then((doc) => {
-          this.router.navigate(['/boat-position', doc.id]);
+          this.router.navigate(['boat-position', doc.id]);
         });
     });
   }

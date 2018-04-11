@@ -5,6 +5,8 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestore } from 'angularfire2/firestore';
 import 'rxjs/Rx';
+import { ActivatedRoute } from '@angular/router';
+import { Room } from '../models/room';
 
 
 
@@ -15,11 +17,32 @@ import 'rxjs/Rx';
 })
 export class BoatPositionComponent implements OnInit {
 
-  constructor(private db: AngularFirestore, private authService: AuthService) {
+  room: any;
+  roomId: string;
+  grid: string[][];
+  constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, ) {
 
   }
 
   ngOnInit() {
+    this.roomId = this.route.snapshot.paramMap.get('id');
+    this.db
+      .doc<Room>('rooms/' + this.roomId)
+      .valueChanges()
+      .subscribe((room) => {
+        this.room = room;
+        console.log(room);
+        this.grid
+        if (!this.grid) {
+          this.grid = [];
+          for (let index = 0; index < this.room.gridsize; index++) {
+            this.grid[index] = Object.keys(Array.apply(0, Array(this.room.gridsize)));
+
+          }
+          console.log(this.grid);
+          
+        }
+      });
 
   }
 
