@@ -14,20 +14,23 @@
 <div class="container">
     <div class="row tablemargin">
       <div class="col-6">
-        <div class="row" *ngFor="let line of grid">
-          <div class="color col-1" *ngFor="let elem of line">
-            {{elem}}
+        <div class="row" *ngFor="let line of grid; let y = index">
+          <div class="cell col-1"
+          *ngFor="let cell of line.line; let x = index"
+          [ngClass]="{'water': cell.type == 'water', 'boat': cell.type == 'boat'}"
+          (click)="cellClicked(x, y)">
+            {{cell.boatId}}
           </div>
         </div>
       </div>
       <br>
-      <div class="col-6">
+      <!-- <div class="col-6">
         <div class="row" *ngFor="let line of grid">
           <div class="color col-1" *ngFor="let elem of line">
             {{elem}}
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   
