@@ -31,11 +31,9 @@
     "core-js": "^2.4.1",
     "firebase": "^4.12.1",
     "jquery": "^3.3.1",
-<<<<<<< HEAD
-    "modal": "^1.2.0",
-=======
+
     "ng2-opd-popup": "^1.1.21",
->>>>>>> dev
+
     "ng2-toastr": "^4.1.2",
     "ngx-smart-modal": "^6.0.0",
     "pusher-js": "^4.2.2",

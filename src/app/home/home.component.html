@@ -39,7 +39,7 @@
           <h1>Welcome to Navy-Battle Games !</h1>
       </div>
       <div class="offset-1 col-2">
-        <button *ngIf="authService.authState" (click)="logout()" class="buttonlogout mt-1 ml-2"><span><img src="assets/Image/exit.png" alt="logout">Logout</span></button>
+        <button *ngIf="authService.authState | async" (click)="logout()" class="buttonlogout mt-1 ml-2"><span><img src="assets/Image/exit.png" alt="logout">Logout</span></button>
       </div>
   </div>
   <div class="container">
@@ -54,8 +54,8 @@
         </div>
       <div class="row">
           <div class="mx-auto pt-4 pb-4">
-              <button *ngIf="!authService.authState" (click)="login()" class="buttonplay"><span>Sign in</span></button>
-              <button *ngIf="authService.authState" class="buttonplay" routerLink="/matchmaking" routerLinkActive="active"><span>Play now !</span></button>
+              <button *ngIf="!authService.authId" (click)="login()" class="buttonplay"><span>Sign in</span></button>
+              <button *ngIf="authService.authId" class="buttonplay" routerLink="/matchmaking" routerLinkActive="active"><span>Play now !</span></button>
           </div>
       </div>
   </div>

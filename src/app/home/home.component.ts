@@ -31,9 +31,11 @@ export class HomeComponent implements OnInit {
       this.authService.login();
     }
 
-    logout() {
-      this.authService.logout();
-    }
+  logout() {
+    console.log('toto');
+    this.authService.logout();
+  }
+
 
    
 }

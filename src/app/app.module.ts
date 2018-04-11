@@ -16,18 +16,15 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { RouterModule, Routes } from '@angular/router';
 import { BoatPositionComponent } from './boat-position/boat-position.component';
 import { AuthService } from './auth.service';
-<<<<<<< HEAD
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-=======
+
 import { MatchMakingComponent } from './matchmaking/matchmaking.component';
->>>>>>> dev
+
 // import { MatchmakingComponent } from './matchmaking/matchmaking.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'boat-position', component: BoatPositionComponent },
+  { path: 'boat-position/:id', component: BoatPositionComponent },
   { path: 'matchmaking', component: MatchMakingComponent },
 ];
 
@@ -43,13 +40,13 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
     ),
-    NgbModule.forRoot(),
+
     BrowserModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [AuthService,NgbModal],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
