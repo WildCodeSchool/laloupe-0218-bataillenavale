@@ -24,9 +24,13 @@
 
 .cell.boat
 {
-    background: rgba($color: black, $alpha: 0.5)
+    background: rgba($color: green, $alpha: 0.5)
 }
 
+.cell.boattouch 
+{
+    background: rgba($color: red, $alpha: 0.5)
+}
 .coloruser 
 {
     color: white;

@@ -55,6 +55,13 @@ export class BoatPositionComponent implements OnInit {
     return cell;
   }
 
+  newWaterCellTouch(): Cell {
+    let cell = new Cell();
+    cell.type = 'boattouch';
+    cell.boatId = 0;
+    return cell;
+  }
+
   newBoatCell(boatId: number): Cell {
     let cell = new Cell();
     cell.type = 'boat';
@@ -162,7 +169,6 @@ export class BoatPositionComponent implements OnInit {
       }
       i++;
     }
-
     return true;
   }
 
@@ -193,8 +199,11 @@ export class BoatPositionComponent implements OnInit {
   }
 
   cellClicked(x: number, y: number) {
-    console.log(x, y);
-    
+    if(this.grid[y].line[x].type == 'water') {
+      console.log("Plouf! in the water");
+    } if (this.grid[y].line[x].type == 'boat'){
+      return this.grid[y].line[x].type = 'boattouch';
+    }
   }
 
   logout() {
@@ -204,42 +213,3 @@ export class BoatPositionComponent implements OnInit {
 
 }
 
-
-
-/* user: Observable<firebase.User>;
-  items: Observable<any[]>;
-  objObservable: Observable<any>;
-  boats: Observable<any[]>; */
-
-
- /*  generateBoats() {
-    let boatsCollection = this.db.collection('boats');
-    boatsCollection.valueChanges()
-      .take(1)
-      .subscribe(boats => {
-        console.log(boats);
-      });
-  } */
-
-
-
-
-
-  /* this.generateBoats(); */
-
-/*   this.roomId = this.route.snapshot.paramMap.get('id');
-  this.db
-    .doc<Room>('rooms/' + this.roomId)
-    .valueChanges()
-    .subscribe((room) => {
-      this.room = room;
-      console.log(room);
-      this.grid;
-      if (!this.grid) {
-        this.grid = [];
-        for (let index = 0; index < this.room.gridsize; index++) {
-          this.grid[index] = Object.keys(Array.apply(0, Array(this.room.gridsize)));
-        }
-        console.log(this.grid);          
-      }
-    }); */
