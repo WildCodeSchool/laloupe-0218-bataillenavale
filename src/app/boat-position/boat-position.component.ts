@@ -36,20 +36,35 @@ export class BoatPositionComponent implements OnInit {
     this.db
       .doc<Room>('rooms/' + this.roomId)
       .valueChanges()
-      .take(1)
       .subscribe((room) => {
         this.room = room;
         console.log(room);
-        this.player1 = this.room.players[Object.keys(this.room.players)[0]].name;
-        this.player2 = this.room.players[Object.keys(this.room.players)[1]].name;
-        this.gridp1 = this.room.players[Object.keys(this.room.players)[0]].grid;
-        this.gridp2 = this.room.players[Object.keys(this.room.players)[1]].grid;
       });
+  }
+
+  get me() {
+    if (Object.keys(this.room.players)[0] === this.authService.authId) {
+      return this.room.players[Object.keys(this.room.players)[0]];
+    } else {
+      return this.room.players[Object.keys(this.room.players)[1]];
+    }
+  }
+
+  get opponent() {
+    return this.room.player[this.opponentId];
+  }
+
+  get opponentId() {
+    if (Object.keys(this.room.players)[0] === this.authService.authId) {
+      return Object.keys(this.room.players)[1];
+    } else {
+      return Object.keys(this.room.players)[0];
+    }
   }
 
   newWaterCellTouch(): Cell {
     let cell = new Cell();
-    cell.type = 'boattouch';
+    cell.type = 'boat_touched';
     cell.boatId = 0;
     return cell;
   }
@@ -57,16 +72,25 @@ export class BoatPositionComponent implements OnInit {
   cellClicked(x: number, y: number) {
     if (this.gridp1[y].line[x].type == 'water') {
       alert("Plouf!");
-      this.gridp1[y].line[x].type = 'water';
+      this.gridp1[y].line[x].type = 'water_missed';
       this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
     } if (this.gridp1[y].line[x].type == 'boat') {
       alert("Touch!");
-      this.gridp1[y].line[x].type = 'boattouch';
+      this.gridp1[y].line[x].type = 'boat_touched';
       this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
     }
     console.log(x, y);
   }
 
+  changeTurn() {
+    this.room.turn = this.room.turn === this.authService.authId ? this.opponentId : this.authService.authId;
+    this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
+  }
+  
+  isMyTurn(): boolean {
+    return this.room.turn === this.authService.authId;
+  }
+  
   logout() {
     this.authService.logout();
   }
