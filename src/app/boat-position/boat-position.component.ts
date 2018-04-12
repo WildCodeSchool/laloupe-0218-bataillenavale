@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Room } from '../models/room';
 import { Cell } from '../models/cell';
 import { Direction } from '../models/direction';
+import { Player } from '../models/player';
 
 @Component({
   selector: 'app-boat-position',
