@@ -16,7 +16,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { RouterModule, Routes } from '@angular/router';
 import { BoatPositionComponent } from './boat-position/boat-position.component';
 import { AuthService } from './auth.service';
+
 import { MatchMakingComponent } from './matchmaking/matchmaking.component';
+
 // import { MatchmakingComponent } from './matchmaking/matchmaking.component';
 
 
@@ -38,6 +40,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
     ),
+
     BrowserModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
