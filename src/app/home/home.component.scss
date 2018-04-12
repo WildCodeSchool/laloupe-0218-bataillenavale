@@ -1,6 +1,6 @@
 /* Home page */
 
-@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
+@import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
 
 .container-fluid
 {
@@ -15,7 +15,8 @@ h1
     color: white;
     text-shadow: 3px 3px 2px rgb(22, 15, 119);
     text-align: center;
-    font-size: 5.5vw;
+    font-size: 50px;
+    font-family: 'Walter Turncoat', cursive;
 }
 
 .videoplay
@@ -33,7 +34,7 @@ h1
     font-size: 40px;
     color: white;
     background-color: #730F00;
-    font-family: 'Berkshire Swash', cursive;
+    font-family: 'Walter Turncoat', cursive;
 }
 .buttonplay span 
 {
@@ -57,7 +58,7 @@ h1
 .buttonlogout 
 {
     width: 50%;
-    height: 39%;
+    height: 100%;
     background: none;
     border: 1px solid white;
     border-radius: 18px;

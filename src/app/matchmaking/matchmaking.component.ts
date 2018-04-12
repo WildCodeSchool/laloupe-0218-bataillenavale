@@ -1,10 +1,11 @@
 import { AuthService } from './../auth.service';
 import { Player } from './../models/player';
 import { Room } from './../models/room';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Rx';
+import 'rxjs/add/operator/take';
+import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
 import { Cell } from '../models/cell';
 import { Direction } from '../models/direction';
@@ -14,7 +15,7 @@ import { Direction } from '../models/direction';
   templateUrl: './matchmaking.component.html',
   styleUrls: ['./matchmaking.component.scss'],
 })
-export class MatchMakingComponent implements OnInit {
+export class MatchMakingComponent implements OnInit, OnDestroy {
 
   private authSubscription: Subscription;
   room;
@@ -42,7 +43,7 @@ export class MatchMakingComponent implements OnInit {
   getRooms() {
     const roomsCollection = this.db.collection<Room>('rooms');
 
-    const snapshot = roomsCollection.snapshotChanges().take(1).subscribe((snapshot) => {
+    roomsCollection.snapshotChanges().take(1).subscribe((snapshot) => {
       const player = new Player();
       player.name = this.authService.name;
 
@@ -64,19 +65,19 @@ export class MatchMakingComponent implements OnInit {
         }
       }
 
-      const room = new Room();
-      room.players = {};
-      room.players[this.authService.authId] = player;
-      room.gridsize = 10;
-      room.turn = this.authService.authId;
+      const newRoom = new Room();
+      newRoom.players = {};
+      newRoom.players[this.authService.authId] = player;
+      newRoom.gridsize = 10;
+      newRoom.turn = this.authService.authId;
       this.createGridWithWater();
       this.addBoats(1, 5, 1);
       this.addBoats(1, 4, 2);
       this.addBoats(2, 3, 3);
       this.addBoats(1, 2, 5);
-      room.players[this.authService.authId].grid = this.grid;
+      newRoom.players[this.authService.authId].grid = this.grid;
       this.db.collection('rooms')
-        .add(JSON.parse(JSON.stringify(room)))
+        .add(JSON.parse(JSON.stringify(newRoom)))
         .then((doc) => {
           this.router.navigate(['boat-position', doc.id]);
         });
@@ -101,13 +102,13 @@ export class MatchMakingComponent implements OnInit {
       y++;
     }
     console.log(this.grid);
-    return this.grid
+    return this.grid;
   }
 
 
 
   newWaterCell(): Cell {
-    let cell = new Cell();
+    const cell = new Cell();
     cell.type = 'water';
     cell.boatId = 0;
     return cell;
@@ -115,10 +116,10 @@ export class MatchMakingComponent implements OnInit {
 
   addBoats(boatNumber: number, boatSize: number, firstBoatId: number) {
     let numBoats = 0;
-    while (numBoats != boatNumber) {
-      let posY = this.generatePosition(this.grid.length);
-      let posX = this.generatePosition(this.grid[0].line.length);
-      let direction = this.generateDirection();
+    while (numBoats !== boatNumber) {
+      const posY = this.generatePosition(this.grid.length);
+      const posX = this.generatePosition(this.grid[0].line.length);
+      const direction = this.generateDirection();
       if (this.canPlaceBoat(boatSize, posX, posY, direction)) {
         this.addBoatToGrid(boatSize, posX, posY, direction, firstBoatId);
         numBoats++;
@@ -128,7 +129,7 @@ export class MatchMakingComponent implements OnInit {
   }
 
   generateDirection(): Direction {
-    let n = Math.floor(Math.random() * 4);
+    const n = Math.floor(Math.random() * 4);
     switch (n) {
       case 0:
         return Direction.Down;
@@ -189,7 +190,7 @@ export class MatchMakingComponent implements OnInit {
 
     let i = 0;
     while (i < size) {
-      if (this.grid[posY + yIncrement * i].line[posX + xIncrement * i].type != 'water') {
+      if (this.grid[posY + yIncrement * i].line[posX + xIncrement * i].type !== 'water') {
         return false;
       }
       i++;
@@ -218,13 +219,13 @@ export class MatchMakingComponent implements OnInit {
 
     let i = 0;
     while (i < size) {
-      this.grid[posY + yIncrement * i].line[posX + xIncrement * i] = this.newBoatCell(boatId);;
+      this.grid[posY + yIncrement * i].line[posX + xIncrement * i] = this.newBoatCell(boatId);
       i++;
     }
   }
 
   newBoatCell(boatId: number): Cell {
-    let cell = new Cell();
+    const cell = new Cell();
     cell.type = 'boat';
     cell.boatId = boatId;
     return cell;
