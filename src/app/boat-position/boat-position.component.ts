@@ -55,6 +55,13 @@ export class BoatPositionComponent implements OnInit {
     return cell;
   }
 
+  newWaterCellTouche(): Cell {
+    let cell = new Cell();
+    cell.type = 'boatTouch';
+    cell.boatId = 0;
+    return cell;
+  }
+
   newBoatCell(boatId: number): Cell {
     let cell = new Cell();
     cell.type = 'boat';
@@ -193,7 +200,15 @@ export class BoatPositionComponent implements OnInit {
   }
 
   cellClicked(x: number, y: number) {
-    console.log(x, y);
+
+    if(this.grid[y].line[x].type == 'water') {
+      console.log(" missed ");  
+    }
+     else {
+       return this.grid[y].line[x].type = 'boatTouch';
+         
+     }
+    
     
   }
 

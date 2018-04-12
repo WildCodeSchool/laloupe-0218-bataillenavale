@@ -17,7 +17,7 @@
         <div class="row" *ngFor="let line of grid; let y = index">
           <div class="cell col-1"
           *ngFor="let cell of line.line; let x = index"
-          [ngClass]="{'water': cell.type == 'water', 'boat': cell.type == 'boat'}"
+          [ngClass]="{'water': cell.type == 'water', 'boat': cell.type == 'boat', 'boat': cell.type == 'boatTouch'}"
           (click)="cellClicked(x, y)">
             {{cell.boatId}}
           </div>

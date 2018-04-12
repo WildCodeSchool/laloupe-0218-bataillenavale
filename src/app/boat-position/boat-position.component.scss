@@ -17,6 +17,10 @@
     padding: 10px;
 }
 
+.cell.boatTouch {
+    background: rgba($color: red, $alpha: 0.1)
+}
+
 .cell.water
 {
     background: rgba($color: blue, $alpha: 0.1)
