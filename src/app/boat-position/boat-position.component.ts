@@ -20,11 +20,13 @@ export class BoatPositionComponent implements OnInit {
   room: any;
   roomId: string;
   grid: { line: Cell[] }[];
+  player1: string;
+  player2: string;
   constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, ) {
 
   }
 
-
+  
 
   ngOnInit() {
     this.roomId = this.route.snapshot.paramMap.get('id');
@@ -35,6 +37,9 @@ export class BoatPositionComponent implements OnInit {
       .subscribe((room) => {
         this.room = room;
         console.log(room);
+        this.player1 = this.room.players[Object.keys(this.room.players)[0]].name;
+        this.player2 = this.room.players[Object.keys(this.room.players)[1]].name;
+        console.log(this.player2);
         if (!this.grid) {
           this.createGridWithWater();
           this.addBoats(1, 5, 1);
@@ -199,7 +204,7 @@ export class BoatPositionComponent implements OnInit {
 
   cellClicked(x: number, y: number) {
     if (this.grid[y].line[x].type == 'water') {
-      alert("Plouf! in the water");
+      console.log("Plouf!");
     } if (this.grid[y].line[x].type == 'boat') {
       return this.grid[y].line[x].type = 'boattouch';
     }
