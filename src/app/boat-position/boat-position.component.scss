@@ -9,15 +9,32 @@
     font-family: 'Berkshire Swash', cursive;
     color: black;
 }
-.color 
+.cell 
 {
     color: white;
     border: 1px solid white;
     text-align: center;
     padding: 10px;
+}
+
+.cell.boatTouch {
+    background: rgba($color: red, $alpha: 0.1)
+}
+
+.cell.water
+{
     background: rgba($color: blue, $alpha: 0.1)
 }
 
+.cell.boat
+{
+    background: rgba($color: green, $alpha: 0.5)
+}
+
+.cell.boattouch 
+{
+    background: rgba($color: red, $alpha: 0.5)
+}
 .coloruser 
 {
     color: white;
