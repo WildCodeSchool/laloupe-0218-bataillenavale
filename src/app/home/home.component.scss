@@ -1,17 +1,24 @@
+/* Home page */
+
+@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
+
 .container-fluid
 {
-    background-image: url("assets/Image/Backgroundaccueil.jpg");
-    background-size: cover;
+    /* background: url(https://i.pinimg.com/originals/68/39/74/6839747c4dce24ced5a71334bf7df7ea.jpg); */
+    /* background-size: cover;
     background-repeat: no-repeat;
-    font-family: 'Berkshire Swash', cursive;
+    font-family: 'Love Ya Like A Sister', cursive; */
 }
+
 h1 
 {
-    color: #730F00;
-    text-shadow: 2px 2px 1px #FFFFFF;
+    color: white;
+    text-shadow: 3px 3px 2px rgb(22, 15, 119);
     text-align: center;
+    font-size: 5.5vw;
 }
-.videoplay 
+
+.videoplay
 {
     border: 1px solid #FFFFFF;
     border-radius: 10px;
@@ -26,6 +33,7 @@ h1
     font-size: 40px;
     color: white;
     background-color: #730F00;
+    font-family: 'Berkshire Swash', cursive;
 }
 .buttonplay span 
 {
@@ -36,7 +44,6 @@ h1
 }  
 .buttonplay span:after 
 {
-    content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
@@ -45,31 +52,17 @@ h1
 }
 .buttonlogout span 
 {
-    color: #730F00;
-}
-  .buttonplay:hover span 
-{
-    padding-right: 25px;
-}  
-.buttonplay:hover span:after 
-{
-    opacity: 1;
-    right: 0;
+    color:white;
 }
 .buttonlogout 
 {
-    width: 150px;
-    height: 40px;
-    border-radius: 12px;
-    border: 1.4px solid #730F00;
-    background: -moz-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(242,246,248,1)), color-stop(51%, rgba(181,198,208,1)), color-stop(100%, rgba(224,239,249,1)));
-    background: -webkit-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
-    background: -o-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
-    background: -ms-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
-    background: linear-gradient(to bottom, rgba(242,246,248,1) 0%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0 );
+    width: 50%;
+    height: 39%;
+    background: none;
+    border: 1px solid white;
+    border-radius: 18px;
 }
+
 #panel {
     padding: 5px;
     text-align: center;
