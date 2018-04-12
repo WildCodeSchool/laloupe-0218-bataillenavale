@@ -20,7 +20,6 @@ export class BoatPositionComponent implements OnInit {
   room: any;
   roomId: string;
   grid: { line: Cell[] }[];
-
   constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, ) {
 
   }
@@ -199,9 +198,9 @@ export class BoatPositionComponent implements OnInit {
   }
 
   cellClicked(x: number, y: number) {
-    if(this.grid[y].line[x].type == 'water') {
-      console.log("Plouf! in the water");
-    } if (this.grid[y].line[x].type == 'boat'){
+    if (this.grid[y].line[x].type == 'water') {
+      alert("Plouf! in the water");
+    } if (this.grid[y].line[x].type == 'boat') {
       return this.grid[y].line[x].type = 'boattouch';
     }
   }
