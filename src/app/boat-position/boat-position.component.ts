@@ -204,8 +204,9 @@ export class BoatPositionComponent implements OnInit {
 
   cellClicked(x: number, y: number) {
     if (this.grid[y].line[x].type == 'water') {
-      console.log("Plouf!");
+      alert("Plouf!");
     } if (this.grid[y].line[x].type == 'boat') {
+      alert("Touch!");
       return this.grid[y].line[x].type = 'boattouch';
     }
   }
