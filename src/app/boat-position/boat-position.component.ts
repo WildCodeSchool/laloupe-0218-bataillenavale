@@ -27,8 +27,6 @@ export class BoatPositionComponent implements OnInit {
 
   }
 
-  
-
   ngOnInit() {
     this.roomId = this.route.snapshot.paramMap.get('id');
     this.db
@@ -54,27 +52,21 @@ export class BoatPositionComponent implements OnInit {
   }
 
   newWaterCell(): Cell {
-    let cell = new Cell();
+    const cell = new Cell();
     cell.type = 'water';
     cell.boatId = 0;
     return cell;
   }
 
-<<<<<<< HEAD
-  newWaterCellTouch(): Cell {
-    let cell = new Cell();
-    cell.type = 'boattouch';
-=======
   newWaterCellTouche(): Cell {
-    let cell = new Cell();
+    const cell = new Cell();
     cell.type = 'boatTouch';
->>>>>>> becbb2dc5a2a8f04f115a1dfe6f714a6df128ada
     cell.boatId = 0;
     return cell;
   }
 
   newBoatCell(boatId: number): Cell {
-    let cell = new Cell();
+    const cell = new Cell();
     cell.type = 'boat';
     cell.boatId = boatId;
     return cell;
@@ -100,7 +92,7 @@ export class BoatPositionComponent implements OnInit {
   }
 
   generateDirection(): Direction {
-    let n = Math.floor(Math.random() * 4);
+    const n = Math.floor(Math.random() * 4);
     switch (n) {
       case 0:
         return Direction.Down;
@@ -120,10 +112,10 @@ export class BoatPositionComponent implements OnInit {
 
   addBoats(boatNumber: number, boatSize: number, firstBoatId: number) {
     let numBoats = 0;
-    while (numBoats != boatNumber) {
-      let posY = this.generatePosition(this.grid.length);
-      let posX = this.generatePosition(this.grid[0].line.length);
-      let direction = this.generateDirection();
+    while (numBoats !== boatNumber) {
+      const posY = this.generatePosition(this.grid.length);
+      const posX = this.generatePosition(this.grid[0].line.length);
+      const direction = this.generateDirection();
       if (this.canPlaceBoat(boatSize, posX, posY, direction)) {
         this.addBoatToGrid(boatSize, posX, posY, direction, firstBoatId);
         numBoats++;
@@ -175,7 +167,7 @@ export class BoatPositionComponent implements OnInit {
 
     let i = 0;
     while (i < size) {
-      if (this.grid[posY + yIncrement * i].line[posX + xIncrement * i].type != 'water') {
+      if (this.grid[posY + yIncrement * i].line[posX + xIncrement * i].type !== 'water') {
         return false;
       }
       i++;
@@ -204,31 +196,18 @@ export class BoatPositionComponent implements OnInit {
 
     let i = 0;
     while (i < size) {
-      this.grid[posY + yIncrement * i].line[posX + xIncrement * i] = this.newBoatCell(boatId);;
+      this.grid[posY + yIncrement * i].line[posX + xIncrement * i] = this.newBoatCell(boatId);
       i++;
     }
   }
 
   cellClicked(x: number, y: number) {
-<<<<<<< HEAD
-    if (this.grid[y].line[x].type == 'water') {
-      alert("Plouf!");
-    } if (this.grid[y].line[x].type == 'boat') {
-      alert("Touch!");
+    if (this.grid[y].line[x].type === 'water') {
+      alert('Plouf!');
+    } if (this.grid[y].line[x].type === 'boat') {
+      alert('Touch!');
       return this.grid[y].line[x].type = 'boattouch';
     }
-=======
-
-    if(this.grid[y].line[x].type == 'water') {
-      console.log(" missed ");  
-    }
-     else {
-       return this.grid[y].line[x].type = 'boatTouch';
-         
-     }
-    
-    
->>>>>>> becbb2dc5a2a8f04f115a1dfe6f714a6df128ada
   }
 
   logout() {
