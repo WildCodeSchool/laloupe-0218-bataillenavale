@@ -11,7 +11,8 @@
       <span>Logout</span>
     </button>
   </div>
-  <div class="container">
+
+  <div class="container" *ngIf="room && me && opponent">
     <div class="row tablemargin">
       <div class="col-6">
         <div class="row" *ngFor="let line of me.grid; let y = index">
