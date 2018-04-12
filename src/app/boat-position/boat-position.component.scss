@@ -2,19 +2,22 @@
 {
     background: url(https://orig00.deviantart.net/d3d9/f/2015/120/6/6/steamroombackground_by_wonderwig-d8rmbgx.gif);
     background-size: cover;
-    height: 800px;
+    height: 100vh;
 }
 .container-fluid 
 {
     font-family: 'Berkshire Swash', cursive;
     color: black;
 }
+
 .cell 
 {
     color: white;
     border: 1px solid white;
     text-align: center;
     padding: 10px;
+    height: 40px;
+    width: 40px;
 }
 
 .cell.boatTouch {
@@ -23,18 +26,29 @@
 
 .cell.water
 {
-    background: rgba($color: blue, $alpha: 0.1)
+    background: rgba($color: blue, $alpha: 0.5)
 }
 
 .cell.boat
 {
-    background: rgba($color: green, $alpha: 0.5)
+    background: rgba($color: green, $alpha: 0.8)
 }
 
-.cell.boattouch 
+.cell.boat_touched 
 {
-    background: rgba($color: red, $alpha: 0.5)
+    background: rgba($color: red, $alpha: 0.8)
 }
+
+.cell.boat_sunk 
+{
+    background: rgba($color: black, $alpha: 0.9)
+}
+
+.cell.water_missed
+{
+    background: rgba($color: gray, $alpha: 1)
+}
+
 .coloruser 
 {
     color: white;
