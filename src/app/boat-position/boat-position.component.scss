@@ -1,18 +1,54 @@
 .backgroundplace
 {
-    background: linear-gradient(#BEE2EF, #71CCED);
+    background: url(https://orig00.deviantart.net/d3d9/f/2015/120/6/6/steamroombackground_by_wonderwig-d8rmbgx.gif);
+    background-size: cover;
     height: 800px;
 }
 .container-fluid 
 {
     font-family: 'Berkshire Swash', cursive;
+    color: black;
+}
+.cell 
+{
+    color: white;
+    border: 1px solid white;
+    text-align: center;
+    padding: 10px;
+}
+
+.cell.water
+{
+    background: rgba($color: blue, $alpha: 0.1)
+}
+
+.cell.boat
+{
+    background: rgba($color: green, $alpha: 0.5)
+}
+
+.cell.boattouch 
+{
+    background: rgba($color: red, $alpha: 0.5)
+}
+.coloruser 
+{
     color: white;
 }
-.textconstruction 
+
+.tablemargin 
 {
-    font-size: 40px;
+    margin-top: 150px;
+    margin-left: 65px;
 }
-.container 
+
+.nav1 {
+    background: rgba($color: black, $alpha: 0.4);
+}
+
+.imgurl
 {
-    margin-top: 280px;
+    margin-left: 10px;
+    max-width: 40px;
 }
+
