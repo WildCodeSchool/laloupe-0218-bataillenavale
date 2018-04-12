@@ -26,13 +26,10 @@
     "@angular/router": "^5.2.0",
     "angularfire2": "^5.0.0-rc.6",
     "bootstrap": "^4.0.0",
-    "bulma": "^0.6.2",
     "core-js": "^2.4.1",
     "firebase": "^4.12.1",
     "jquery": "^3.3.1",
     "ng2-opd-popup": "^1.1.21",
-    "ng2-toastr": "^4.1.2",
-    "pusher-js": "^4.2.2",
     "rxjs": "^5.5.6",
     "save": "^2.3.2",
     "zone.js": "^0.8.19"
