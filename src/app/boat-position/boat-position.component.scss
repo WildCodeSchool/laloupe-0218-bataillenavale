@@ -6,7 +6,7 @@
 }
 .container-fluid 
 {
-    font-family: 'Berkshire Swash', cursive;
+    font-family: 'Walter Turncoat', cursive;
     color: black;
 }
 .cell 
@@ -44,6 +44,7 @@
 
 .nav1 {
     background: rgba($color: black, $alpha: 0.4);
+
 }
 
 .imgurl
@@ -52,3 +53,10 @@
     max-width: 40px;
 }
 
+.home{
+    font-family: 'Walter Turncoat', cursive;
+}
+
+.logout{
+    font-family: 'Walter Turncoat', cursive;
+}

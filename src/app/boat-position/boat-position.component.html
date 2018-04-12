@@ -3,11 +3,11 @@
   <!-- Bouton de redirection -->
   <!-- <div class="row pt-4"> -->
   <div class="navbar navbar-expand nav1">
-    <button routerLink="/" routerLinkActive="active">Home page</button>
+    <button class="home" routerLink="/" routerLinkActive="active">Home page</button>
     <div class="coloruser offset-lg-9 mt-1" *ngIf="authService.authState | async as user">{{user.displayName}}
       <img [src]="user.photoURL" class="imgurl rounded-circle" />
     </div>
-    <button class="ml-2" *ngIf="authService.authState | async" (click)="logout()" routerLink="/" routerLinkActive="active">
+    <button class="ml-2 logout" *ngIf="authService.authState | async" (click)="logout()" routerLink="/" routerLinkActive="active">
       <span>Logout</span>
     </button>
   </div>
