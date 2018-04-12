@@ -1,5 +1,7 @@
+import { Cell } from "./cell";
+
 export class Player {
   name: string;
   id: string;
-  grid: number[];
+  grid: { line: Cell[] }[];
 }

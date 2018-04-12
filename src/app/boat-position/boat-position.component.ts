@@ -18,7 +18,7 @@ import { Player } from '../models/player';
 })
 export class BoatPositionComponent implements OnInit {
 
-  room: any;
+  room: Room;
   roomId: string;
   grid: { line: Cell[] }[];
   gridp1: { line: Cell[] }[];
@@ -43,6 +43,9 @@ export class BoatPositionComponent implements OnInit {
   }
 
   get me() {
+    if (!this.room || !this.room.players) {
+      return null;
+    }
     if (Object.keys(this.room.players)[0] === this.authService.authId) {
       return this.room.players[Object.keys(this.room.players)[0]];
     } else {
@@ -51,10 +54,16 @@ export class BoatPositionComponent implements OnInit {
   }
 
   get opponent() {
-    return this.room.player[this.opponentId];
+    if (!this.room || !this.room.players) {
+      return null;
+    }
+    return this.room.players[this.opponentId];
   }
 
   get opponentId() {
+    if (!this.room || !this.room.players) {
+      return null;
+    }
     if (Object.keys(this.room.players)[0] === this.authService.authId) {
       return Object.keys(this.room.players)[1];
     } else {

@@ -68,6 +68,7 @@ export class MatchMakingComponent implements OnInit {
       room.players = {};
       room.players[this.authService.authId] = player;
       room.gridsize = 10;
+      room.turn = this.authService.authId;
       this.createGridWithWater();
       this.addBoats(1, 5, 1);
       this.addBoats(1, 4, 2);
