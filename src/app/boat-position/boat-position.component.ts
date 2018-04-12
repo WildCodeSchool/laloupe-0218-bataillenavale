@@ -60,9 +60,15 @@ export class BoatPositionComponent implements OnInit {
     return cell;
   }
 
+<<<<<<< HEAD
   newWaterCellTouch(): Cell {
     let cell = new Cell();
     cell.type = 'boattouch';
+=======
+  newWaterCellTouche(): Cell {
+    let cell = new Cell();
+    cell.type = 'boatTouch';
+>>>>>>> becbb2dc5a2a8f04f115a1dfe6f714a6df128ada
     cell.boatId = 0;
     return cell;
   }
@@ -204,12 +210,25 @@ export class BoatPositionComponent implements OnInit {
   }
 
   cellClicked(x: number, y: number) {
+<<<<<<< HEAD
     if (this.grid[y].line[x].type == 'water') {
       alert("Plouf!");
     } if (this.grid[y].line[x].type == 'boat') {
       alert("Touch!");
       return this.grid[y].line[x].type = 'boattouch';
     }
+=======
+
+    if(this.grid[y].line[x].type == 'water') {
+      console.log(" missed ");  
+    }
+     else {
+       return this.grid[y].line[x].type = 'boatTouch';
+         
+     }
+    
+    
+>>>>>>> becbb2dc5a2a8f04f115a1dfe6f714a6df128ada
   }
 
   logout() {
