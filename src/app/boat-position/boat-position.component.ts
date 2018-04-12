@@ -29,7 +29,7 @@ export class BoatPositionComponent implements OnInit {
 
   }
 
-  
+
 
   ngOnInit() {
     this.roomId = this.route.snapshot.paramMap.get('id');
@@ -42,7 +42,6 @@ export class BoatPositionComponent implements OnInit {
         console.log(room);
         this.player1 = this.room.players[Object.keys(this.room.players)[0]].name;
         this.player2 = this.room.players[Object.keys(this.room.players)[1]].name;
-        console.log(this.player2);
         this.gridp1 = this.room.players[Object.keys(this.room.players)[0]].grid;
         this.gridp2 = this.room.players[Object.keys(this.room.players)[1]].grid;
       });
@@ -56,11 +55,11 @@ export class BoatPositionComponent implements OnInit {
   }
 
   cellClicked(x: number, y: number) {
-    if (this.grid[y].line[x].type == 'water') {
+    if (this.gridp1[y].line[x].type == 'water') {
       alert("Plouf!");
-    } if (this.grid[y].line[x].type == 'boat') {
+    } if (this.gridp1[y].line[x].type == 'boat') {
       alert("Touch!");
-      return this.grid[y].line[x].type = 'boattouch';
+      return this.gridp1[y].line[x].type = 'boattouch';
     }
   }
 
