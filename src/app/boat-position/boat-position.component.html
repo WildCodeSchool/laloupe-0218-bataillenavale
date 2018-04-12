@@ -14,17 +14,15 @@
   <div class="container">
     <div class="row tablemargin">
       <div class="col-6">
-        <div class="row" *ngFor="let line of grid; let y = index">
-          <div class="cell col-1"
-          *ngFor="let cell of line.line; let x = index"
-          [ngClass]="{'water': cell.type == 'water', 'boat': cell.type == 'boat', 'boat': cell.type == 'boatTouch'}"
-          (click)="cellClicked(x, y)">
+        <div class="row" *ngFor="let line of gridp1; let y = index">
+          <div class="cell col-1" *ngFor="let cell of line.line; let x = index" [ngClass]="{'water': cell.type == 'water', 'boat': cell.type == 'boat', 'boattouch': cell.type == 'boattouch'}"
+            (click)="cellClicked(x, y)">
             {{cell.boatId}}
           </div>
         </div>
       </div>
       <div class="col-6">
-        <div class="row" *ngFor="let line of grid; let y = index">
+        <div class="row" *ngFor="let line of gridp2; let y = index">
           <div class="cell col-1" *ngFor="let cell of line.line; let x = index" [ngClass]="{'water': cell.type == 'water', 'boat': cell.type == 'boat', 'boattouch': cell.type == 'boattouch'}"
             (click)="cellClicked(x, y)">
             {{cell.boatId}}
