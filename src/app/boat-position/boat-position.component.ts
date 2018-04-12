@@ -35,11 +35,6 @@ export class BoatPositionComponent implements OnInit {
       });
   }
 
-<<<<<<< HEAD
-  newWaterCellTouche(): Cell {
-    const cell = new Cell();
-    cell.type = 'boatTouch';
-=======
   get me(): Player {
     if (!this.room || !this.room.players) {
       return null;
@@ -86,19 +81,11 @@ export class BoatPositionComponent implements OnInit {
   newWaterMissing(): Cell {
     const cell = new Cell();
     cell.type = 'water_missed';
->>>>>>> Alex
     cell.boatId = 0;
     return cell;
   }
 
   cellClicked(x: number, y: number) {
-<<<<<<< HEAD
-    if (this.grid[y].line[x].type === 'water') {
-      alert('Plouf!');
-    } if (this.grid[y].line[x].type === 'boat') {
-      alert('Touch!');
-      return this.grid[y].line[x].type = 'boattouch';
-=======
     if (this.handleTurn()) {
       this.changeTurn();
       if (this.opponent.grid[y].line[x].type === 'water') {
@@ -122,7 +109,6 @@ export class BoatPositionComponent implements OnInit {
       }
     } else {
       alert('It is not your turn captain!');
->>>>>>> Alex
     }
   }
 
