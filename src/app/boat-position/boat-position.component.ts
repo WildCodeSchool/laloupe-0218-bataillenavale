@@ -57,10 +57,14 @@ export class BoatPositionComponent implements OnInit {
   cellClicked(x: number, y: number) {
     if (this.gridp1[y].line[x].type == 'water') {
       alert("Plouf!");
+      this.gridp1[y].line[x].type = 'water';
+      this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
     } if (this.gridp1[y].line[x].type == 'boat') {
       alert("Touch!");
-      return this.gridp1[y].line[x].type = 'boattouch';
+      this.gridp1[y].line[x].type = 'boattouch';
+      this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
     }
+    console.log(x, y);
   }
 
   logout() {
