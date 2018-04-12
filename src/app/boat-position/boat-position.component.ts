@@ -20,16 +20,8 @@ export class BoatPositionComponent implements OnInit {
 
   room: Room;
   roomId: string;
-  grid: { line: Cell[] }[];
-  gridp1: { line: Cell[] }[];
-  gridp2: { line: Cell[] }[];
-  player1: string;
-  player2: string;
   constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, ) {
-
   }
-
-
 
   ngOnInit() {
     this.roomId = this.route.snapshot.paramMap.get('id');
@@ -42,7 +34,7 @@ export class BoatPositionComponent implements OnInit {
       });
   }
 
-  get me() {
+  get me(): Player {
     if (!this.room || !this.room.players) {
       return null;
     }
@@ -53,7 +45,7 @@ export class BoatPositionComponent implements OnInit {
     }
   }
 
-  get opponent() {
+  get opponent(): Player {
     if (!this.room || !this.room.players) {
       return null;
     }
@@ -79,27 +71,83 @@ export class BoatPositionComponent implements OnInit {
   }
 
   cellClicked(x: number, y: number) {
-    if (this.gridp1[y].line[x].type == 'water') {
+    if (this.opponent.grid[y].line[x].type == 'water') {
       alert("Plouf!");
-      this.gridp1[y].line[x].type = 'water_missed';
-      this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
-    } if (this.gridp1[y].line[x].type == 'boat') {
-      alert("Touch!");
-      this.gridp1[y].line[x].type = 'boat_touched';
+      this.opponent.grid[y].line[x].type = 'water_missed';
       this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
     }
+    if (this.opponent.grid[y].line[x].type == 'boat') {
+      this.opponent.grid[y].line[x].type = 'boat_touched';
+      if (this.isSunkBoat(this.opponent.grid[y].line[x].boatId)) {
+        this.setSunkBoat(this.opponent.grid[y].line[x].boatId);
+        alert("Sunk!");
+      } else {
+        alert("Touch!");
+      }
+      this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
+    }
+    if (this.isAllBoatSunk()) {
+      alert("Win!");
+    }
     console.log(x, y);
+  }
+
+  isSunkBoat(boatId: number) {
+    let y = 0;
+    while (y < 10) {
+      let x = 0;
+      while (x < 10) {
+        let boat = this.opponent.grid[y].line[x];
+        if (boat.boatId == boatId && boat.type == 'boat') {
+          return false;
+        }
+        x++;
+      }
+      y++;
+    }
+    return true;
+  }
+
+  setSunkBoat(boatId: number) {
+    let y = 0;
+    while (y < 10) {
+      let x = 0;
+      while (x < 10) {
+        let boat = this.opponent.grid[y].line[x];
+        if (boat.boatId == boatId) {
+          boat.type = 'boat_sunk';
+        }
+        x++;
+      }
+      y++;
+    }
+  }
+
+  isAllBoatSunk() {
+    let y = 0;
+    while (y < 10) {
+      let x = 0;
+      while (x < 10) {
+        let boat = this.opponent.grid[y].line[x];
+        if (boat.type == 'boat') {
+          return false;
+        }
+        x++;
+      }
+      y++;
+    }
+    return true;
   }
 
   changeTurn() {
     this.room.turn = this.room.turn === this.authService.authId ? this.opponentId : this.authService.authId;
     this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
   }
-  
+
   isMyTurn(): boolean {
     return this.room.turn === this.authService.authId;
   }
-  
+
   logout() {
     this.authService.logout();
   }
