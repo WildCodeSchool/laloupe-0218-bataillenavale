@@ -1,16 +1,33 @@
 <div class="container-fluid backgroundplace">
-  <div class="row pt-4">
-    <div class="offset-lg-10">
-      <button routerLink="/" routerLinkActive="active">Home page</button>
-      <button *ngIf="authenticated" (click)="logout()" class="buttonlogout mt-1 ml-2" routerLink="/" routerLinkActive="active">
-        <span>Logout</span>
-      </button>
+
+  <!-- Bouton de redirection -->
+  <!-- <div class="row pt-4"> -->
+  <div class="navbar navbar-expand nav1">
+    <button routerLink="/" routerLinkActive="active">Home page</button>
+    <div class="coloruser offset-lg-9 mt-1" *ngIf="authService.authState | async as user">{{user.displayName}}
+      <img [src]="user.photoURL" class="imgurl rounded-circle" />
     </div>
+    <button class="ml-2" *ngIf="authService.authState | async" (click)="logout()" routerLink="/" routerLinkActive="active">
+      <span>Logout</span>
+    </button>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="mx-auto">
-        <h1 class="textconstruction">In construction</h1>
+
+  <div class="container" *ngIf="room && me && opponent">
+    <div class="row tablemargin">
+      <div class="col-6">
+        <div class="row" *ngFor="let line of me.grid; let y = index">
+          <div class="cell col-1" *ngFor="let cell of line.line; let x = index" [ngClass]="{'water': cell.type == 'water', 'boat': cell.type == 'boat', 'boat_touched': cell.type == 'boat_touched', 'water_missed': cell.type == 'water_missed'}">
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row" *ngFor="let line of opponent.grid; let y = index">
+          <div class="cell col-1" *ngFor="let cell of line.line; let x = index" [ngClass]="{'water': cell.type == 'water' || cell.type == 'boat' , 'boat_touched': cell.type == 'boat_touched', 'boat_sunk': cell.type == 'boat_sunk', 'water_missed': cell.type == 'water_missed'}"
+            (click)="cellClicked(x, y)">
+
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -10,13 +10,20 @@ import { AngularFireModule } from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 // Routing application
 import { RouterModule, Routes } from '@angular/router';
 import { BoatPositionComponent } from './boat-position/boat-position.component';
+import { AuthService } from './auth.service';
+import { MatchMakingComponent } from './matchmaking/matchmaking.component';
+// import { MatchmakingComponent } from './matchmaking/matchmaking.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'boat-position', component: BoatPositionComponent },
+  { path: 'boat-position/:id', component: BoatPositionComponent },
+  { path: 'matchmaking', component: MatchMakingComponent },
 ];
 
 
@@ -24,7 +31,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    BoatPositionComponent
+    BoatPositionComponent,
+    MatchMakingComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -32,9 +40,10 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
