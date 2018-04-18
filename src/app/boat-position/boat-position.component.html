@@ -16,17 +16,15 @@
     <div class="row tablemargin">
       <div class="col-6">
         <div class="row" *ngFor="let line of me.grid; let y = index">
-          <div class="cell col-1" *ngFor="let cell of line.line; let x = index" [ngClass]="{'water': cell.type == 'water', 'boat': cell.type == 'boat', 'boattouch': cell.type == 'boattouch'}">
-          
-    
+          <div class="cell col-1" *ngFor="let cell of line.line; let x = index" [ngClass]="{'water': cell.type == 'water', 'boat': cell.type == 'boat', 'boat_touched': cell.type == 'boat_touched', 'water_missed': cell.type == 'water_missed'}">
+
           </div>
         </div>
       </div>
       <div class="col-6">
         <div class="row" *ngFor="let line of opponent.grid; let y = index">
-          <div class="cell col-1" *ngFor="let cell of line.line; let x = index" [ngClass]="{'water': cell.type == 'water' || cell.type == 'boat' , 'boattouch': cell.type == 'boattouch'}"
+          <div class="cell col-1" *ngFor="let cell of line.line; let x = index" [ngClass]="{'water': cell.type == 'water' || cell.type == 'boat' , 'boat_touched': cell.type == 'boat_touched', 'boat_sunk': cell.type == 'boat_sunk', 'water_missed': cell.type == 'water_missed'}"
             (click)="cellClicked(x, y)">
-        
           </div>
         </div>
       </div>
