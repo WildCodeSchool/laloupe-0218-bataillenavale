@@ -52,7 +52,7 @@
 
 .tablemargin 
 {
-    margin-top: 150px;
+    margin-top: 10px;
     margin-left: 65px;
 }
 
@@ -64,5 +64,34 @@
 {
     margin-left: 10px;
     max-width: 40px;
+}
+
+.colorchat 
+{
+    color: white;
+    margin-left: 5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.heightchat 
+{
+    border: 2px solid white;
+    margin-top: 20px;
+    height: 200px;
+    overflow-y: scroll;
+    background: rgba($color: black, $alpha: 0.4)
+}
+
+.inputchat 
+{
+    border: 2px solid black;
+    width: 450px;
+    margin-top: 10px;
+}
+
+.nameplayer 
+{
+    color: white;
+    font-size: 20px;
 }
 
