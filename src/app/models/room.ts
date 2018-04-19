@@ -5,4 +5,5 @@ export class Room {
   turn: string;
   winner: string;
   gridsize: number;
+  chat = [];
 }
