@@ -8,28 +8,37 @@ import { Observable } from 'rxjs/Observable';
 
 
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  closeResult: string;
+  user: Observable<firebase.User>;
+  authenticated = false;
   constructor(private authService: AuthService) {
-
   }
+    ngOnInit() {
 
-  ngOnInit() {
+    }
+    
 
-  }
 
-  login() {
-    this.authService.login();
-  }
+    login() {
+      this.authService.login();
+    }
 
   logout() {
     console.log('toto');
     this.authService.logout();
   }
 
+
+   
 }
+
+
+

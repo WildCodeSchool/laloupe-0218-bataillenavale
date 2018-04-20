@@ -35,6 +35,7 @@ export class BoatPositionComponent implements OnInit {
         this.updateScroll();
         console.log(room);
       });
+<<<<<<< HEAD
   }
 
   get me(): Player {
@@ -71,6 +72,8 @@ export class BoatPositionComponent implements OnInit {
     cell.type = 'boat_touched';
     cell.boatId = 0;
     return cell;
+=======
+>>>>>>> 1f93f42c5c2bbcdc1e293395f47fb212f3d5f47c
   }
 
   newBoatSunk(): Cell {
@@ -80,6 +83,7 @@ export class BoatPositionComponent implements OnInit {
     return cell;
   }
 
+<<<<<<< HEAD
   newWaterMissing(): Cell {
     const cell = new Cell();
     cell.type = 'water_missed';
@@ -168,6 +172,15 @@ export class BoatPositionComponent implements OnInit {
 
   handleTurn(): boolean {
     return this.room.turn === this.authService.authId;
+=======
+  cellClicked(x: number, y: number) {
+    if (this.grid[y].line[x].type === 'water') {
+      alert('Plouf!');
+    } if (this.grid[y].line[x].type === 'boat') {
+      alert('Touch!');
+      return this.grid[y].line[x].type = 'boattouch';
+    }
+>>>>>>> 1f93f42c5c2bbcdc1e293395f47fb212f3d5f47c
   }
 
   logout() {
