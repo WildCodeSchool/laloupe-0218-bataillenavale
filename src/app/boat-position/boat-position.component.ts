@@ -174,12 +174,12 @@ export class BoatPositionComponent implements OnInit {
   }
 
   chat() {
-    this.room.chat[this.room.chat.length] = this.me.name + " : " + this.message;
+    this.room.chat[this.room.chat.length] = this.me.name + ' : ' + this.message;
     console.log(this.me.name);
     this.db.doc<Room>('rooms/' + this.roomId).update(this.room);
     this.message = '';
   }
-  
+
   updateScroll() {
     const element = document.getElementById('chat');
     if (element) {

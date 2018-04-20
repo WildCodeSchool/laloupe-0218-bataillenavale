@@ -70,7 +70,7 @@ export class MatchMakingComponent implements OnInit, OnDestroy {
       newRoom.players[this.authService.authId] = player;
       newRoom.gridsize = 10;
       newRoom.turn = this.authService.authId;
-      newRoom.chat = ["Good luck !"];
+      newRoom.chat = ['Good luck !'];
       this.createGridWithWater();
       this.addBoats(1, 5, 1);
       this.addBoats(1, 4, 2);
