@@ -21,6 +21,7 @@ export class BoatPositionComponent implements OnInit {
   room: Room;
   roomId: string;
   isMyTurn: boolean;
+  message: string;
   constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, private router: Router ) {
   }
 
@@ -31,6 +32,7 @@ export class BoatPositionComponent implements OnInit {
       .valueChanges()
       .subscribe((room) => {
         this.room = room;
+        this.updateScroll();
         console.log(room);
       });
   }
@@ -172,6 +174,19 @@ export class BoatPositionComponent implements OnInit {
     this.authService.logout();
   }
 
-
+  chat() {
+    this.room.chat[this.room.chat.length] = this.me.name + " : " + this.message;
+    console.log(this.me.name);
+    this.db.doc<Room>('rooms/' + this.roomId).update(this.room);
+    this.message = '';
+  }
+  
+  updateScroll() {
+    const element = document.getElementById('chat');
+    if (element) {
+      console.log(element);
+      element.scrollTop = element.scrollHeight;
+    }
+  }
 }
 
