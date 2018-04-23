@@ -22,7 +22,7 @@ export class BoatPositionComponent implements OnInit {
   roomId: string;
   isMyTurn: boolean;
   message: string;
-  constructor(private db: AngularFirestore, private authService: AuthService, private route: ActivatedRoute, private router: Router ) {
+  constructor(public authService: AuthService, private db: AngularFirestore, private route: ActivatedRoute, private router: Router ) {
   }
 
   ngOnInit() {
