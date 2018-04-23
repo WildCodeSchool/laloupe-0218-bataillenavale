@@ -1,11 +1,10 @@
 /* Home page */
-
 @import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
 
 h1 
 {
     color: white;
-    text-shadow: 3px 3px 2px rgb(22, 15, 119);
+    text-shadow: 4px 4px 3px rgb(22, 15, 119);
     text-align: center;
     font-size: 50px;
     font-family: 'Walter Turncoat', cursive;
@@ -46,13 +45,14 @@ h1
 .buttonlogout span 
 {
     color:white;
+    font-family: 'Walter Turncoat', cursive;
 }
 .buttonlogout 
 {
     width: 50%;
     height: 100%;
     background: none;
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 18px;
 }
 
@@ -74,4 +74,8 @@ h1
     text-decoration: none;
     text-align: center;
     font-size: 25px;
+}
+
+.rules{
+    font-family: 'Walter Turncoat', cursive;
 }
